@@ -21,7 +21,7 @@ class App extends Component {
         </div>
 
         <LanguageContext.Provider value={this.state.language}>
-          <ColourContext.Provider value={'orangered'}>
+          <ColourContext.Provider value={'orange'}>
             <UserCreate />
           </ColourContext.Provider>
         </LanguageContext.Provider>

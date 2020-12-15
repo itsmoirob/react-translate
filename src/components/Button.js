@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
+import ColourContext from '../contexts/ColourContext';
 import LanguageContext from '../contexts/LanguageContext';
 
 class Button extends Component {
-  render() {
+  renderButton(colour) {
     return (
-      <button className="ui button primary">
+      <button className={`ui button ${colour}`}>
         <LanguageContext.Consumer>
-          {(value) => value === 'english' ? ' Submit' : 'Voorleggen'}
+          {(language) => language === 'english' ? ' Submit' : 'Voorleggen'}
         </LanguageContext.Consumer>
       </button>
+    )
+  }
+
+  render() {
+    return (
+      <ColourContext.Consumer>
+        {(colour) => this.renderButton(colour)}
+      </ColourContext.Consumer>
     )
   }
 }
